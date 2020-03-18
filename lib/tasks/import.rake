@@ -15,6 +15,7 @@ task :import => [:environment] do
       Customer.create!(customer_hash)
     end
   end
+  puts 'Customers seeded'
 end
 
 desc "Import merchants from csv file"
@@ -32,6 +33,7 @@ task :import => [:environment] do
       Merchant.create!(merchant_hash)
     end
   end
+  puts 'Merchants seeded'
 end
 
 desc "Import items from csv file"
@@ -49,6 +51,7 @@ task :import => [:environment] do
       Item.create!(item_hash)
     end
   end
+  puts 'Items seeded'
 end
 
 desc "Import invoices from csv file"
@@ -66,6 +69,7 @@ task :import => [:environment] do
       Invoice.create!(invoice_hash)
     end
   end
+  puts 'Invoices seeded'
 end
 
 desc "Import invoice_items from csv file"
@@ -83,6 +87,7 @@ task :import => [:environment] do
       InvoiceItem.create!(invoice_item_hash)
     end
   end
+  puts 'invoice_items seeded'
 end
 
 desc "Import transactions from csv file"
@@ -100,4 +105,5 @@ task :import => [:environment] do
       Transaction.create!(transaction_hash)
     end
   end
+  puts 'Transactions seeded'
 end
