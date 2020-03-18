@@ -1,5 +1,20 @@
 require 'csv'
 
+desc "Clear tables"
+task :import => [:environment] do
+  Transaction.delete_all
+  InvoiceItem.delete_all
+  Invoice.delete_all
+  Item.delete_all
+  Merchant.delete_all
+  Customer.delete_all
+  puts 'DB Cleared'
+
+  ActiveRecord::Base.connection.tables.each do |t|
+    ActiveRecord::Base.connection.reset_pk_sequence!(t)
+  end
+end
+
 desc "Import customer from csv file"
 task :import => [:environment] do
 
@@ -76,9 +91,9 @@ desc "Import invoice_items from csv file"
 task :import => [:environment] do
 
   file = "db/invoice_items.csv"
-
   CSV.foreach(file, :headers => true) do |row|
     invoice_item_hash = row.to_hash
+    invoice_item_hash["unit_price"] = invoice_item_hash["unit_price"].to_f / 100
     invoice_item = InvoiceItem.where(id: invoice_item_hash["id"])
 
     if invoice_item.length == 1
