@@ -24,4 +24,17 @@ describe "Items API" do
 
     expect(item["data"]["id"].to_i).to eq(Item.all.first.id)
   end
+
+  it "Create: sends a newly created item" do
+    create_list(:item, 3)
+    create(:merchant)
+
+    post '/api/v1/items', params: {"name": "apple", "description": "Juicy", "unit_price": "2.40", "merchant_id": "#{Merchant.first.id}"}
+
+    expect(response).to be_successful
+
+    merchant = JSON.parse(response.body)
+
+    expect(Merchant.all.length).to eq(4)
+  end
 end
