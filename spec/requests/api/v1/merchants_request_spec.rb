@@ -28,12 +28,12 @@ describe "Merchants API" do
   it "Create: sends a newly created merchant" do
     create_list(:merchant, 3)
 
-    post '/api/v1/merchants'
+    post '/api/v1/merchants', params: {"name": "Grape Stand"}
 
     expect(response).to be_successful
 
     merchant = JSON.parse(response.body)
 
-    expect(Merchant.all).to eq(4)
+    expect(Merchant.all.length).to eq(4)
   end
 end
