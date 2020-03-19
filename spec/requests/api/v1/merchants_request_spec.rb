@@ -24,4 +24,16 @@ describe "Merchants API" do
 
     expect(merchant["data"]["id"].to_i).to eq(Merchant.all.first.id)
   end
+
+  it "Create: sends a newly created merchant" do
+    create_list(:merchant, 3)
+
+    post '/api/v1/merchants'
+
+    expect(response).to be_successful
+
+    merchant = JSON.parse(response.body)
+
+    expect(Merchant.all).to eq(4)
+  end
 end
