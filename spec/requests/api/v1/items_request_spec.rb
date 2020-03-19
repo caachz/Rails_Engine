@@ -12,4 +12,16 @@ describe "Items API" do
 
     expect(items["data"].count).to eq(3)
   end
+
+  it "Show: sends a specific item" do
+    create_list(:item, 3)
+
+    get "/api/v1/items/#{Item.all.first.id}"
+
+    expect(response).to be_successful
+
+    item = JSON.parse(response.body)
+
+    expect(item["data"]["id"].to_i).to eq(Item.all.first.id)
+  end
 end
