@@ -46,8 +46,24 @@ describe "Merchants API" do
     expect(response).to be_successful
 
     merchant = JSON.parse(response.body)
-    
+
     expect(merchant["data"]["attributes"]["name"]).to eq("Snow Store")
     expect(Merchant.last.name).to_not eq("Snow Store")
+  end
+
+  it "Destroy: deletes a merchant" do
+    create_list(:merchant, 3)
+
+    merchant_id = Merchant.first.id
+
+    delete "/api/v1/merchants/#{merchant_id}", params: {"name": "Banana Stand"}
+
+    expect(response).to be_successful
+
+    merchant = JSON.parse(response.body)
+
+    expect(merchant["data"]["id"]).to eq("merchant_id")
+    expect(Merchant.find(merchant_id)).to eq(nil)
+    expect(Merchant.length).to eq(2)
   end
 end
