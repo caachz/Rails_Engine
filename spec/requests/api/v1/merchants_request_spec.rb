@@ -35,5 +35,19 @@ describe "Merchants API" do
     merchant = JSON.parse(response.body)
 
     expect(Merchant.all.length).to eq(4)
+    expect(merchant["data"]["attributes"]["name"]).to eq("Grape Stand")
+  end
+
+  it "Update: sends an updated merchant" do
+    create_list(:merchant, 3)
+
+    patch "/api/v1/merchants/#{Merchant.first.id}", params: {"id": "Merchant.first.id", "name": "Snow Store"}
+
+    expect(response).to be_successful
+
+    merchant = JSON.parse(response.body)
+    
+    expect(merchant["data"]["attributes"]["name"]).to eq("Snow Store")
+    expect(Merchant.last.name).to_not eq("Snow Store")
   end
 end
