@@ -51,4 +51,19 @@ describe "Items API" do
     expect(Item.first.name).to eq("Snow Shoe")
     expect(Item.last.name).to_not eq("Snow Shoe")
   end
+
+  it "Destroy: deletes a item" do
+    create_list(:item, 3)
+
+    item_id = Item.first.id
+
+    delete "/api/v1/items/#{item_id}", params: {"name": "Banana Stand", "description": "A stand for bananas", "unit_price": "2.50"}
+
+    expect(response).to be_successful
+
+     item = JSON.parse(response.body)
+
+    expect(item["data"]["id"]).to eq("#{item_id}")
+    expect(Item.count).to eq(2)
+  end
 end
