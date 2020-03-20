@@ -37,4 +37,18 @@ describe "Items API" do
 
     expect(Merchant.all.length).to eq(4)
   end
+
+  it "Update: sends an updated item" do
+    create_list(:item, 3)
+
+    patch "/api/v1/items/#{Item.first.id}", params: {"id": "#{Item.first.id}", "name": "Snow Shoe"}
+
+    expect(response).to be_successful
+
+    item = JSON.parse(response.body)
+
+    expect(item["data"]["attributes"]["name"]).to eq("Snow Shoe")
+    expect(Item.first.name).to eq("Snow Shoe")
+    expect(Item.last.name).to_not eq("Snow Shoe")
+  end
 end
