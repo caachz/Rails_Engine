@@ -62,8 +62,7 @@ describe "Merchants API" do
 
     merchant = JSON.parse(response.body)
 
-    expect(merchant["data"]["id"]).to eq("merchant_id")
-    expect(Merchant.find(merchant_id)).to eq(nil)
-    expect(Merchant.length).to eq(2)
+    expect(merchant["data"]["id"]).to eq("#{merchant_id}")
+    expect(Merchant.count).to eq(2)
   end
 end
