@@ -85,11 +85,14 @@ describe "Merchants API" do
 
   it "finds a merchant based on a single search criteria" do
     create_list(:merchant, 3)
+    merchant1 = Merchant.create!(name: "Ring World")
 
-    get '/api/v1/merchants/find?name=inc'
+    get '/api/v1/merchants/find?name=ring'
 
     expect(response).to be_successful
 
-    merchants = JSON.parse(response.body)
+    merchant = JSON.parse(response.body)
+
+    expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
   end
 end
