@@ -70,10 +70,10 @@ describe "Items API" do
   it "returns the items associated with an merchant" do
     merchant1 = create(:merchant)
     merchant2 = create(:merchant)
-    create(:item, merchant_id: merchant1.id)
-    create(:item, merchant_id: merchant1.id)
-    create(:item, merchant_id: merchant2.id)
-    create(:item, merchant_id: merchant2.id)
+    item1 = create(:item, merchant_id: merchant1.id)
+    item2 = create(:item, merchant_id: merchant1.id)
+    item3 = create(:item, merchant_id: merchant2.id)
+    item4 = create(:item, merchant_id: merchant2.id)
 
     get "/api/v1/merchants/#{Merchant.first.id}/items"
 
@@ -81,6 +81,6 @@ describe "Items API" do
 
     item = JSON.parse(response.body)
 
-    # expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
+    expect(item["data"][0]["id"].to_i).to eq(item1.id)
   end
 end

@@ -10,6 +10,12 @@ Rails.application.routes.draw do
           resource :merchant, only: [:show], :controller => 'search'
         end
       end
+
+      scope module: :items do
+        resources :merchants do
+          resource :items, only: [:show], :controller => 'search'
+        end
+      end
     end
   end
 end
