@@ -112,4 +112,19 @@ describe "Items API" do
 
     expect(item["data"]["id"].to_i).to eq(item1.id)
   end
+
+  it "finds only 1 item by description" do
+    create_list(:item, 3)
+    merchant = create(:merchant)
+    item1 = Item.create!(name: "Coffee Mug", description: "Cute and colorful for your morning Coffee", unit_price: "58.65", merchant: merchant)
+    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth taste", unit_price: 49.32, merchant: merchant)
+
+    get '/api/v1/items/find?description=coffee'
+
+    expect(response).to be_successful
+
+    item = JSON.parse(response.body)
+
+    expect(item["data"]["id"].to_i).to eq(item1.id)
+  end
 end
