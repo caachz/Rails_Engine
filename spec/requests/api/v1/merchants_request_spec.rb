@@ -95,4 +95,18 @@ describe "Merchants API" do
 
     expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
   end
+
+  it "finds only 1 merchant on a single search criteria" do
+    create_list(:merchant, 3)
+    merchant1 = Merchant.create!(name: "Ring World")
+    merchant2 = Merchant.create!(name: "Turing")
+
+    get '/api/v1/merchants/find?name=ring'
+
+    expect(response).to be_successful
+
+    merchant = JSON.parse(response.body)
+
+    expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
+  end
 end
