@@ -86,7 +86,8 @@ describe "Items API" do
 
   it "finds a item based on a single search criteria" do
     create_list(:item, 3)
-    item1 = Item.create!(name: "Coffee Mug")
+    merchant = create(:merchant)
+    item1 = Item.create!(name: "Coffee Mug", description: "Cute and colorful", unit_price: "58.65", merchant: merchant)
 
     get '/api/v1/items/find?name=coffee'
 
@@ -99,15 +100,16 @@ describe "Items API" do
 
   it "finds only 1 item on a single search criteria" do
     create_list(:item, 3)
-    item1 = Item.create!(name: "Coffee Mug", description: "Cute and colorful")
-    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth taste")
+    merchant = create(:merchant)
+    item1 = Item.create!(name: "Coffee Mug", description: "Cute and colorful", unit_price: "58.65", merchant: merchant)
+    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth taste", unit_price: 49.32, merchant: merchant)
 
-    get '/api/v1/items/find?name=ring'
+    get '/api/v1/items/find?name=coffee'
 
     expect(response).to be_successful
 
     item = JSON.parse(response.body)
 
-    expect(items["data"]["id"].to_i).to eq(item1.id)
+    expect(item["data"]["id"].to_i).to eq(item1.id)
   end
 end
