@@ -82,4 +82,8 @@ describe "Merchants API" do
 
     expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
   end
+
+  it "finds a merchant based on a single search criteria" do
+    
+  end
 end

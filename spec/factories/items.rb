@@ -1,8 +1,10 @@
+require 'faker'
+
 FactoryBot.define do
   factory :item do
-    name { "Banana Stand" }
-    description { "A stand for bananas" }
-    unit_price { 2.50 }
+    name { Faker::Commerce.product_name }
+    description { Faker::Commerce.color }
+    unit_price { Faker::Commerce.price }
     merchant
   end
 end

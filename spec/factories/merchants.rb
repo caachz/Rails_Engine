@@ -1,5 +1,7 @@
+require 'faker'
+
 FactoryBot.define do
   factory :merchant do
-    name { "Banana Stand" }
+    name { Faker::Company.name }
   end
 end
