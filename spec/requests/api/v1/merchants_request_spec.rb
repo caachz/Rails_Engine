@@ -84,6 +84,12 @@ describe "Merchants API" do
   end
 
   it "finds a merchant based on a single search criteria" do
-    
+    create_list(:merchant, 3)
+
+    get '/api/v1/merchants/find?name=inc'
+
+    expect(response).to be_successful
+
+    merchants = JSON.parse(response.body)
   end
 end
