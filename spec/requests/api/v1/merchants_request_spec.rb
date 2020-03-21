@@ -67,8 +67,12 @@ describe "Merchants API" do
   end
 
   it "returns the merchant associated with an item" do
-    create_list(:merchant, 4)
-    create_list(:item, 4)
+    merchant1 = create(:merchant)
+    merchant2 = create(:merchant)
+    create(:item, merchant_id: merchant1.id)
+    create(:item, merchant_id: merchant1.id)
+    create(:item, merchant_id: merchant2.id)
+    create(:item, merchant_id: merchant2.id)
 
     get "/api/v1/items/#{Item.first.id}/merchant"
 
@@ -76,6 +80,6 @@ describe "Merchants API" do
 
     merchant = JSON.parse(response.body)
 
-    require "pry"; binding.pry
+    expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
   end
 end
