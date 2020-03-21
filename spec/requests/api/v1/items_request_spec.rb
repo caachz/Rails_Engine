@@ -83,4 +83,31 @@ describe "Items API" do
 
     expect(item["data"][0]["id"].to_i).to eq(item1.id)
   end
+
+  it "finds a item based on a single search criteria" do
+    create_list(:item, 3)
+    item1 = Item.create!(name: "Coffee Mug")
+
+    get '/api/v1/items/find?name=coffee'
+
+    expect(response).to be_successful
+
+    item = JSON.parse(response.body)
+
+    expect(item["data"]["id"].to_i).to eq(item1.id)
+  end
+
+  it "finds only 1 item on a single search criteria" do
+    create_list(:item, 3)
+    item1 = Item.create!(name: "Coffee Mug", description: "Cute and colorful")
+    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth taste")
+
+    get '/api/v1/items/find?name=ring'
+
+    expect(response).to be_successful
+
+    item = JSON.parse(response.body)
+
+    expect(items["data"]["id"].to_i).to eq(item1.id)
+  end
 end
