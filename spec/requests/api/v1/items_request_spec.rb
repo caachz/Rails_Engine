@@ -157,4 +157,6 @@ describe "Items API" do
     expect(items["data"][0]["id"].to_i).to eq(item1.id).or eq(item2.id)
     expect(items["data"][1]["id"].to_i).to eq(item1.id).or eq(item2.id)
   end
+
+  
 end
