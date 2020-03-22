@@ -141,4 +141,20 @@ describe "Items API" do
 
     expect(item["data"]["id"].to_i).to eq(item1.id)
   end
+
+  it "returns the multi-finder" do
+    merchant = create(:merchant)
+    item1 = Item.create!(name: "Coffee cup", description: "perfect for your coffee", unit_price: "58.65", merchant: merchant)
+    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth tasty coffee", unit_price: 49.32, merchant: merchant)
+
+    get '/api/v1/items/find_all?name=coffee'
+
+    expect(response).to be_successful
+
+    items = JSON.parse(response.body)
+
+    expect(items["data"].length).to eq(2)
+    expect(items["data"][0]["id"].to_i).to eq(item1.id).or eq(item2.id)
+    expect(items["data"][1]["id"].to_i).to eq(item1.id).or eq(item2.id)
+  end
 end

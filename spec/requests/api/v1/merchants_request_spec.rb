@@ -121,6 +121,8 @@ describe "Merchants API" do
 
     merchant = JSON.parse(response.body)
 
-    expect(merchant["data"]["id"].to_i).to eq(merchant1.id)
+    expect(merchant["data"].length).to eq(2)
+    expect(merchant["data"][0]["id"].to_i).to eq(merchant1.id).or eq(merchant2.id)
+    expect(merchant["data"][1]["id"].to_i).to eq(merchant1.id).or eq(merchant2.id)
   end
 end
