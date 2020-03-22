@@ -117,9 +117,23 @@ describe "Items API" do
     create_list(:item, 3)
     merchant = create(:merchant)
     item1 = Item.create!(name: "Coffee Mug", description: "Cute and colorful for your morning Coffee", unit_price: "58.65", merchant: merchant)
-    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth taste", unit_price: 49.32, merchant: merchant)
+    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth tasty coffee", unit_price: 49.32, merchant: merchant)
 
     get '/api/v1/items/find?description=coffee'
+
+    expect(response).to be_successful
+
+    item = JSON.parse(response.body)
+
+    expect(item["data"]["id"].to_i).to eq(item1.id)
+  end
+
+  it "find functiona accepts multiple attributes" do
+    merchant = create(:merchant)
+    item1 = Item.create!(name: "fountain Pen", description: "Blue ink", unit_price: "58.65", merchant: merchant)
+    item2 = Item.create!(name: "Dark Roast Coffee", description: "Smooth tasty coffee", unit_price: 49.32, merchant: merchant)
+
+    get '/api/v1/items/find?name=pen&description=blue'
 
     expect(response).to be_successful
 
