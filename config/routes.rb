@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resource :find, only: [:show], :controller => 'find'
         resources :find_all, only: [:index], :controller => 'find'
         resources :most_revenue, only: [:index], :controller => 'intelligence'
+        resource :most_items, only: [:show], :controller => 'intelligence'
       end
 
       namespace :items do

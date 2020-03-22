@@ -105,10 +105,13 @@ task :import => [:environment] do
 
   CSV.foreach(file, :headers => true) do |row|
     transaction_hash = row.to_hash
-    transaction = Transaction.where(id: transaction_hash["id"])
-
+    if transaction_hash["result"] == "success"
+      transaction_hash["result"] = 0
+    else
+      transaction_hash["result"] = 1
+    end
+    
     Transaction.create!(transaction_hash)
-
   end
   next_value = (Transaction.order(id: :desc).limit(1).pluck(:id)[0]) + 1
   ActiveRecord::Base.connection.execute("alter sequence transactions_id_seq restart with #{next_value};")

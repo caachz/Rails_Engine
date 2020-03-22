@@ -216,5 +216,9 @@ describe "Merchants API" do
     expect(response).to be_successful
 
     merchant = JSON.parse(response.body)
+
+    expect(merchant["data"].count).to eq(2)
+    expect(merchant["data"][0]["attributes"]["name"]).to eq("Ring World")
+    expect(merchant["data"][1]["attributes"]["name"]).to eq("Turing")
   end
 end
