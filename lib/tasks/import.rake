@@ -88,10 +88,7 @@ task :import => [:environment] do
   CSV.foreach(file, :headers => true) do |row|
     invoice_item_hash = row.to_hash
     invoice_item_hash["unit_price"] = (invoice_item_hash["unit_price"].to_i * 0.01).round(2)
-    invoice_item = InvoiceItem.where(id: invoice_item_hash["id"])
-
     InvoiceItem.create!(invoice_item_hash)
-
   end
   next_value = (InvoiceItem.order(id: :desc).limit(1).pluck(:id)[0]) + 1
   ActiveRecord::Base.connection.execute("alter sequence invoice_items_id_seq restart with #{next_value};")
@@ -110,7 +107,7 @@ task :import => [:environment] do
     else
       transaction_hash["result"] = 1
     end
-    
+
     Transaction.create!(transaction_hash)
   end
   next_value = (Transaction.order(id: :desc).limit(1).pluck(:id)[0]) + 1

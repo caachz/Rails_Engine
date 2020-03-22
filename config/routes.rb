@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
+      resource :revenue, only: [:show], :controller => 'revenue'
 
       namespace :merchants do
         resource :find, only: [:show], :controller => 'find'
