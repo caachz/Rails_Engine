@@ -175,6 +175,5 @@ describe "Merchants API" do
 
     merchant = JSON.parse(response.body)
 
-    require "pry"; binding.pry
   end
 end

@@ -19,6 +19,7 @@ class Api::V1::Items::FindController < ApplicationController
     injection = ""
 
     find_params.each do |key, value|
+      key = key.downcase
       string = " lower(#{key}) like :#{key} OR"
       injection = injection + string
     end
@@ -31,6 +32,7 @@ class Api::V1::Items::FindController < ApplicationController
   def values
     values = {}
     find_params.each do |key, value|
+      key = key.downcase
       values[key.to_sym] = "%#{value}%"
     end
     values

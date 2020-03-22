@@ -8,7 +8,8 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    render json: ItemSerializer.new(Item.create(item_params))
+    merchant = Merchant.find(params[:merchant_id])
+    render json: ItemSerializer.new(merchant.items.create(item_params))
   end
 
   def update
@@ -23,6 +24,6 @@ class Api::V1::ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit("name", "description", "unit_price", "merchant_id", "id")
+    params.permit("name", "description", "unit_price", "merchant_id")
   end
 end
