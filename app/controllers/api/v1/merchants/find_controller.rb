@@ -10,17 +10,13 @@ class Api::V1::Merchants::FindController < ApplicationController
     injection.slice!" "
     injection.delete_suffix!(' OR')
 
-    merchant = Merchant.where("#{injection}", values).first
+    merchant = Merchant.where(injection, values).first
     render json: MerchantSerializer.new(merchant)
-
-    # find_params.each do |key, value|
-    #   render json: MerchantSerializer.new(Merchant.where("lower(#{key}) like ?", "%#{value}%").first)
-    # end
   end
 
   private
 
   def find_params
-    params.permit("name".downcase, "id", "updated_at", "created_at")
+    params.permit("name", "id", "updated_at", "created_at")
   end
 end

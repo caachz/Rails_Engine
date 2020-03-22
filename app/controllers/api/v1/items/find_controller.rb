@@ -10,7 +10,7 @@ class Api::V1::Items::FindController < ApplicationController
     injection.slice!" "
     injection.delete_suffix!(' OR')
 
-    item = Item.where("#{injection}", values).first
+    item = Item.where(injection, values).first
     render json: ItemSerializer.new(item)
   end
 
