@@ -42,6 +42,8 @@ describe "revenue API endpoint" do
 
     expect(response).to be_successful
 
-    merchant = JSON.parse(response.body)
+    revenue = JSON.parse(response.body)
+
+    expect(revenue["data"]["attributes"]["revenue"]).to eq(65000000852.7)
   end
 end
