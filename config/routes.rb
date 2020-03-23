@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :revenue, only: [:index], :controller => 'revenue'
 
+
       namespace :merchants do
         resource :find, only: [:show], :controller => 'find'
         resources :find_all, only: [:index], :controller => 'find'
@@ -29,6 +30,10 @@ Rails.application.routes.draw do
         resources :merchants do
           resource :items, only: [:show], :controller => 'search'
         end
+      end
+      
+      resources :merchants do
+        resource :revenue, only: [:show], :controller => 'revenue'
       end
     end
   end
