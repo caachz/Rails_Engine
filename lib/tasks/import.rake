@@ -24,12 +24,11 @@ task :import => [:environment] do
     customer_hash = row.to_hash
     customer = Customer.where(id: customer_hash["id"])
 
-    if customer.length == 1
-      customer.first.update_attributes(customer_hash)
-    else
-      Customer.create!(customer_hash)
-    end
+    Customer.create!(customer_hash)
+
   end
+  next_value = (Customer.order(id: :desc).limit(1).pluck(:id)[0]) + 1
+  ActiveRecord::Base.connection.execute("alter sequence customers_id_seq restart with #{next_value};")
   puts 'Customers seeded'
 end
 
@@ -40,14 +39,12 @@ task :import => [:environment] do
 
   CSV.foreach(file, :headers => true) do |row|
     merchant_hash = row.to_hash
-    merchant = Merchant.where(id: merchant_hash["id"])
 
-    if merchant.length == 1
-      merchant.first.update_attributes(merchant_hash)
-    else
-      Merchant.create!(merchant_hash)
-    end
+    Merchant.create!(merchant_hash)
+
   end
+  next_value = (Merchant.order(id: :desc).limit(1).pluck(:id)[0]) + 1
+  ActiveRecord::Base.connection.execute("alter sequence merchants_id_seq restart with #{next_value};")
   puts 'Merchants seeded'
 end
 
@@ -58,14 +55,12 @@ task :import => [:environment] do
 
   CSV.foreach(file, :headers => true) do |row|
     item_hash = row.to_hash
-    item = Item.where(id: item_hash["id"])
+    item_hash["unit_price"] = (item_hash["unit_price"].to_i * 0.01).round(2)
 
-    if item.length == 1
-      item.first.update_attributes(item_hash)
-    else
-      Item.create!(item_hash)
-    end
+    Item.create!(item_hash)
   end
+  next_value = (Item.order(id: :desc).limit(1).pluck(:id)[0]) + 1
+  ActiveRecord::Base.connection.execute("alter sequence items_id_seq restart with #{next_value};")
   puts 'Items seeded'
 end
 
@@ -78,12 +73,11 @@ task :import => [:environment] do
     invoice_hash = row.to_hash
     invoice = Invoice.where(id: invoice_hash["id"])
 
-    if invoice.length == 1
-      invoice.first.update_attributes(invoice_hash)
-    else
-      Invoice.create!(invoice_hash)
-    end
+    Invoice.create!(invoice_hash)
+
   end
+  next_value = (Invoice.order(id: :desc).limit(1).pluck(:id)[0]) + 1
+  ActiveRecord::Base.connection.execute("alter sequence invoices_id_seq restart with #{next_value};")
   puts 'Invoices seeded'
 end
 
@@ -93,15 +87,11 @@ task :import => [:environment] do
   file = "db/invoice_items.csv"
   CSV.foreach(file, :headers => true) do |row|
     invoice_item_hash = row.to_hash
-    invoice_item_hash["unit_price"] = invoice_item_hash["unit_price"].to_f / 100
-    invoice_item = InvoiceItem.where(id: invoice_item_hash["id"])
-
-    if invoice_item.length == 1
-      invoice_item.first.update_attributes(invoice_item_hash)
-    else
-      InvoiceItem.create!(invoice_item_hash)
-    end
+    invoice_item_hash["unit_price"] = (invoice_item_hash["unit_price"].to_i * 0.01).round(2)
+    InvoiceItem.create!(invoice_item_hash)
   end
+  next_value = (InvoiceItem.order(id: :desc).limit(1).pluck(:id)[0]) + 1
+  ActiveRecord::Base.connection.execute("alter sequence invoice_items_id_seq restart with #{next_value};")
   puts 'invoice_items seeded'
 end
 
@@ -112,13 +102,15 @@ task :import => [:environment] do
 
   CSV.foreach(file, :headers => true) do |row|
     transaction_hash = row.to_hash
-    transaction = Transaction.where(id: transaction_hash["id"])
-
-    if transaction.length == 1
-      transaction.first.update_attributes(transaction_hash)
+    if transaction_hash["result"] == "success"
+      transaction_hash["result"] = 0
     else
-      Transaction.create!(transaction_hash)
+      transaction_hash["result"] = 1
     end
+
+    Transaction.create!(transaction_hash)
   end
+  next_value = (Transaction.order(id: :desc).limit(1).pluck(:id)[0]) + 1
+  ActiveRecord::Base.connection.execute("alter sequence transactions_id_seq restart with #{next_value};")
   puts 'Transactions seeded'
 end
