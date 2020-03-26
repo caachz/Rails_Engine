@@ -22,9 +22,9 @@ open `localhost:3001` in your browser.<br /><br />
 
 ### To set up locally using a tool like Postman:<br />
 
-You can only clone down Rails Engine.<br />
-Run `bundle install` on rails engine.<br />
-Run `rails db:{create,migrate}` to setup the database on rails engine.<br />
+You only clone down Rails Engine.<br />
+Run `bundle install`.<br />
+Run `rails db:{create,migrate}` to setup the database.<br />
 Run `rake import` to seed the db.<br />
 Run `rails s` to localhost:3000.<br />
 Open a tool like postman and make any of the following requests.<br />
