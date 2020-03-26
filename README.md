@@ -1,10 +1,10 @@
-## Rails Engine
+# Rails Engine
 
-# Background and Description
+## Background and Description
 Rails engine is a basic ecommerce API that exposes endpoints for all crud functionality and advanced business logic endpoints. It is built to communicate with a prebuilt frontend called Rails Driver.
 
-# Implementation Instructions
-# To set up locally with front end Rails Driver:<br />
+## Implementation Instructions
+### To set up locally with front end Rails Driver:<br />
 
 Clone down this repository and the front end of the application at https://github.com/caachz/rails_driver.<br />
 Run `bundle install` on rails engine.<br />
@@ -14,7 +14,7 @@ Run `rails s` to localhost:3000.<br />
 Navigate to the cloned down Rails Driver and run `rails server -p 3001`.<br />
 open `localhost:3001` in your browser.<br /><br />
 
-# To set up locally using a tool like Postman:<br />
+### To set up locally using a tool like Postman:<br />
 
 You can only clone down Rails Engine.<br />
 Run `bundle install` on rails engine.<br />
@@ -23,7 +23,7 @@ Run `rake import` to seed the db.<br />
 Run `rails s` to localhost:3000.<br />
 Open a tool like postman and make any of the following requests.<br />
 
-# Endpoints
+### Endpoints
 
 Restful Resources for Merchants and Items: 
   
@@ -146,7 +146,7 @@ Restful Resources for Merchants and Items:
     
    &nbsp;&nbsp;&nbsp;&nbsp;POST api/v1/items?name=painting&description=A great thing to spend money on&unit_price=478.30&merchant_id=1<br />
   
-  <pre><code></pre>
+  <pre><code>
   {
     "data": {
         "id": "2486",
@@ -160,7 +160,7 @@ Restful Resources for Merchants and Items:
         }
     }
 }
-</code><br /><br /><br />
+</pre></code><br /><br /><br />
   
   &nbsp;&nbsp;Update: <br />
     &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/merchants/:id?name=wonderful world of house plants<br />
@@ -201,7 +201,7 @@ Restful Resources for Merchants and Items:
   
   <pre><code></pre></code><br /><br /><br />
   
- # Relationship resources:<br />
+ ### Relationship resources:<br />
  
   &nbsp;&nbsp;Items from a merchant:<br /><br />
    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id/items<br />
@@ -247,7 +247,7 @@ Restful Resources for Merchants and Items:
     }
 }</pre></code><br /><br /><br />
 
-# Find endpoints: <br />
+### Find endpoints: <br />
 
   &nbsp;&nbsp;Returns a single resource matching attributes:<br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find?name=Jerde<br />
@@ -287,7 +287,7 @@ Restful Resources for Merchants and Items:
     ]
 }</pre></code><br /><br /><br />
   
- # Buiness Intelligence endpoints:<br />
+ ### Buiness Intelligence endpoints:<br />
  
   &nbsp;&nbsp;Merchants with the most revenue: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_revenue?quantity=2<br />
