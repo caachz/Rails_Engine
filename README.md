@@ -4,7 +4,7 @@
 Rails engine is a basic ecommerce API that exposes endpoints for all crud functionality and advanced business logic endpoints. It is built to communicate with a prebuilt frontend called Rails Driver.
 
 # Implementation Instructions
-To set up locally with front end Rails Driver:<br />
+# To set up locally with front end Rails Driver:<br />
 
 Clone down this repository and the front end of the application at https://github.com/caachz/rails_driver.<br />
 Run `bundle install` on rails engine.<br />
@@ -14,7 +14,8 @@ Run `rails s` to localhost:3000.<br />
 Navigate to the cloned down Rails Driver and run `rails server -p 3001`.<br />
 open `localhost:3001` in your browser.<br /><br />
 
-To set up locally using a tool like Postman:<br />
+# To set up locally using a tool like Postman:<br />
+
 You can only clone down Rails Engine.<br />
 Run `bundle install` on rails engine.<br />
 Run `rails db:{create,migrate}` to setup the database on rails engine.<br />
@@ -100,7 +101,7 @@ Restful Resources for Merchants and Items:
   &nbsp;&nbsp;Show: <br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id<br />
     
-     <pre><code> {
+   <pre><code>{
     "data": {
         "id": "3",
         "type": "merchant",
@@ -109,7 +110,8 @@ Restful Resources for Merchants and Items:
             "name": "Willms and Sons"
         }
     }
-}</pre></code><br /><br /><br />
+}
+</pre></code><br /><br /><br />
 
 &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/items/:id<br />
 
@@ -127,10 +129,10 @@ Restful Resources for Merchants and Items:
     }
 }</pre></code>
   
-  &nbsp;&nbsp;Create: <br />
+  &nbsp;&nbsp;Create: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;POST /api/v1/merchants?name=happy dog<br />
     
-    <pre><code>{
+   <pre><code>{
     "data": {
         "id": "101",
         "type": "merchant",
@@ -139,11 +141,13 @@ Restful Resources for Merchants and Items:
             "name": "happy dog"
         }
     }
-}</pre></code><br /><br /><br />
+}
+    </pre></code><br /><br /><br />
     
-    &nbsp;&nbsp;&nbsp;&nbsp;POST api/v1/items?name=painting&description=A great thing to spend money on&unit_price=478.30&merchant_id=1<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;POST api/v1/items?name=painting&description=A great thing to spend money on&unit_price=478.30&merchant_id=1<br />
   
-  <pre><code></pre>{
+  <pre><code></pre>
+  {
     "data": {
         "id": "2486",
         "type": "item",
@@ -155,10 +159,11 @@ Restful Resources for Merchants and Items:
             "merchant_id": 1
         }
     }
-}</code><br /><br /><br />
+}
+</code><br /><br /><br />
   
   &nbsp;&nbsp;Update: <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/merchants/:id<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/merchants/:id?name=wonderful world of house plants<br />
   
   <pre><code>{
     "data": {
@@ -171,7 +176,7 @@ Restful Resources for Merchants and Items:
     }
 }</pre></code><br /><br /><br />
   
-  &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/items/:id<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/items/:id?name=Rubber Tree<br />
   
   <pre><code>{
     "data": {
@@ -196,9 +201,9 @@ Restful Resources for Merchants and Items:
   
   <pre><code></pre></code><br /><br /><br />
   
- Relationship resources:<br />
+ # Relationship resources:<br />
  
-  &nbsp;&nbsp;Items from a merchant:<br />
+  &nbsp;&nbsp;Items from a merchant:<br /><br />
    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id/items<br />
    
    <pre><code>{
@@ -228,7 +233,7 @@ Restful Resources for Merchants and Items:
       ]
      }</pre></code><br /><br /><br />
    
-  &nbsp;&nbsp;Merchant that belongs to an item:<br />
+  &nbsp;&nbsp;Merchant that belongs to an item:<br /><br />
    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/items/:id/merchant<br />
    
    <pre><code>{
@@ -242,10 +247,10 @@ Restful Resources for Merchants and Items:
     }
 }</pre></code><br /><br /><br />
 
-Find endpoints: <br />
+# Find endpoints: <br />
 
-  &nbsp;&nbsp;Returns a single resource matching attributes:<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/<resource>/find?name=Jerde<br />
+  &nbsp;&nbsp;Returns a single resource matching attributes:<br /><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find?name=Jerde<br />
   
   <pre><code>{
     "data": {
@@ -259,7 +264,7 @@ Find endpoints: <br />
 }</pre></code><br /><br /><br />
   
   &nbsp;&nbsp;Returns all resources matching attributes:<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/<resource>/find_all?name=one<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find_all?name=one<br />
   
   <pre><code>{
     "data": [
@@ -282,12 +287,13 @@ Find endpoints: <br />
     ]
 }</pre></code><br /><br /><br />
   
- Buiness Intelligence endpoints:<br />
+ # Buiness Intelligence endpoints:<br />
  
-  &nbsp;&nbsp;Merchants with the most revenue: <br />
+  &nbsp;&nbsp;Merchants with the most revenue: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_revenue?quantity=2<br />
     
-    <pre><code>{
+   <pre><code>
+   {
     "data": [
         {
             "id": "14",
@@ -306,12 +312,14 @@ Find endpoints: <br />
             }
         }
     ]
-}</pre></code><br /><br /><br />
+}
+</pre></code><br /><br /><br />
     
-  &nbsp;&nbsp;Merchants with most items sold:<br />
+  &nbsp;&nbsp;Merchants with most items sold:<br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_items?quantity=2<br />
     
-    <pre><code>{
+   <pre><code>
+   {
     "data": [
         {
             "id": "89",
@@ -330,31 +338,36 @@ Find endpoints: <br />
             }
         }
     ]
-}</pre></code><br /><br /><br />
+}
+</pre></code><br /><br /><br />
     
-  &nbsp;&nbsp;Revenue accross date range: <br />
+  &nbsp;&nbsp;Revenue accross date range: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/revenue?start=2012-03-09&end=2012-03-24<br />
     
-    <pre><code>{
+  <pre><code>
+  {
     "data": {
         "id": "null",
         "attributes": {
             "revenue": 40945238.33000028
         }
     }
-}</pre></code><br /><br /><br />
+}
+</pre></code><br /><br /><br />
     
-  &nbsp;&nbsp;Revenue for a merchant: <br />
+  &nbsp;&nbsp;Revenue for a merchant: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id/revenue<br />
     
-    <pre><code>{
+   <pre><code>
+   {
     "data": {
         "id": "null",
         "attributes": {
             "revenue": 338055.5400000002
         }
     }
-}</pre></code><br /><br /><br />
+}
+</pre></code><br /><br /><br />
   
   
   
