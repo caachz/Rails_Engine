@@ -25,7 +25,8 @@ Open a tool like postman and make any of the following requests.
 Restful Resources for Merchants and Items: 
   
   Index: <br />
-    GET /api/v1/<resource>
+    GET /api/v1/merchants<br />
+    GET /api/v1/items<br />
   
   <pre><code>{ 
     "data": [
@@ -56,49 +57,81 @@ Restful Resources for Merchants and Items:
       ]
     }</pre></code>
   
-  Show: 
-    GET /api/v1/<resource>/:id
+  Show: <br />
+    GET /api/v1/merchants/:id<br />
+    GET /api/v1/items/:id<br />
+    
+     <pre><code>{
+    "data": {
+        "id": "3",
+        "type": "merchant",
+        "attributes": {
+            "id": 3,
+            "name": "Willms and Sons"
+        }
+    }
+}</pre></code>
   
-  Create: 
-    POST /api/v1/<resource>
+  Create: <br />
+    POST /api/v1/<resource><br />
   
-  Update: 
-    PATCH /api/v1/<resource>/:id
+  <pre><code></pre></code>
   
-  Destroy: 
-    DELETE /api/v1/<resource>/:id
+  Update: <br />
+    PATCH /api/v1/<resource>/:id<br />
   
- Relationship resources:
+  <pre><code></pre></code>
+  
+  Destroy: <br />
+    DELETE /api/v1/<resource>/:id<br />
+  
+  <pre><code></pre></code>
+  
+ Relationship resources:<br />
  
-  Items from a merchant:
-   GET /api/v1/merchants/:id/items
+  Items from a merchant:<br />
+   GET /api/v1/merchants/:id/items<br />
    
-  Merchant that belongs to an item:
-   GET /api/v1/items/:id/merchant
+   <pre><code></pre></code>
+   
+  Merchant that belongs to an item:<br />
+   GET /api/v1/items/:id/merchant<br />
+   
+   <pre><code></pre></code>
 
-Find endpoints: 
+Find endpoints: <br />
 
-  Returns a single resource matching attributes:
-    GET /api/v1/<resource>/find?<attribute>=<value>
+  Returns a single resource matching attributes:<br />
+    GET /api/v1/<resource>/find?<attribute>=<value><br />
   
-  Returns all resources matching attributes:
-    GET /api/v1/<resource>/find_all?<attribute>=<value>
+  <pre><code></pre></code>
   
- Buiness Intelligence endpoints:
+  Returns all resources matching attributes:<br />
+    GET /api/v1/<resource>/find_all?<attribute>=<value><br />
+  
+  <pre><code></pre></code>
+  
+ Buiness Intelligence endpoints:<br />
  
-  Merchants with the most revenue: 
-    GET /api/v1/merchants/most_revenue?quantity=x
+  Merchants with the most revenue: <br />
+    GET /api/v1/merchants/most_revenue?quantity=x<br />
     
-  Merchants with most items sold:
-    GET /api/v1/merchants/most_items?quantity=x
+    <pre><code></pre></code>
     
-  Revenue accross date range: 
-    GET /api/v1/revenue?start=<start_date>&end=<end_date>
+  Merchants with most items sold:<br />
+    GET /api/v1/merchants/most_items?quantity=x<br />
     
-  Revenue for a merchant: 
-    GET /api/v1/merchants/:id/revenue
-  
-  
+    <pre><code></pre></code>
+    
+  Revenue accross date range: <br />
+    GET /api/v1/revenue?start=<start_date>&end=<end_date><br />
+    
+    <pre><code></pre></code>
+    
+  Revenue for a merchant: <br />
+    GET /api/v1/merchants/:id/revenue<br />
+    
+    <pre><code></pre></code>
   
   
   
