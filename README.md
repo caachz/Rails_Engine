@@ -27,7 +27,7 @@ Restful Resources for Merchants and Items:
   Index: 
     GET /api/v1/<resource>
   
-  `{ \n
+  <pre><code>{ 
     "data": [
         {
             "id": "1",
@@ -54,7 +54,7 @@ Restful Resources for Merchants and Items:
             }
         }
       ]
-    }`
+    }</pre></code>
   
   Show: 
     GET /api/v1/<resource>/:id
