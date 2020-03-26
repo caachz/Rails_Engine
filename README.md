@@ -24,11 +24,11 @@ Open a tool like postman and make any of the following requests.<br />
 
 Restful Resources for Merchants and Items: 
   
-  Index: <br />
-    GET /api/v1/merchants<br />
-    GET /api/v1/items<br />
+  &nbsp;Index: <br />
+    &nbsp;&nbsp;GET /api/v1/merchants<br />
+    
   
-  <pre><code> { 
+  &nbsp;&nbsp;&nbsp;<pre><code> { 
     "data": [
         {
             "id": "1",
@@ -55,8 +55,9 @@ Restful Resources for Merchants and Items:
             }
         }
       ]
-    }</pre></code>
+    }</pre></code><br />
   
+  &nbsp;&nbsp;GET /api/v1/items<br />
   Show: <br />
     GET /api/v1/merchants/:id<br />
     GET /api/v1/items/:id<br />
