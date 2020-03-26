@@ -1,9 +1,9 @@
 ## Rails Engine
 
-#Background and Description
+# Background and Description
 Rails engine is a basic ecommerce API that exposes endpoints for all crud functionality and advanced business logic endpoints. It is built to communicate with a prebuilt frontend called Rails Driver.
 
-#Implementation Instructions
+# Implementation Instructions
 To set up locally with front end Rails Driver:
 
 Clone down this repository and the front end of the application at https://github.com/caachz/rails_driver.
@@ -20,14 +20,14 @@ Run rails db:{create,migrate,seed} to setup the database on rails engine.
 Run rails s to localhost:3000.
 Open a tool like postman and make any of the following requests.
 
-#Endpoints
+# Endpoints
 
 Restful Resources for Merchants and Items: 
   
   Index: 
     GET /api/v1/<resource>
   
-  `{
+  `{ \n
     "data": [
         {
             "id": "1",
