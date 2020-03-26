@@ -28,7 +28,7 @@ Restful Resources for Merchants and Items:
     GET /api/v1/merchants<br />
     GET /api/v1/items<br />
   
-  <pre><code>{ 
+  <pre><code> { 
     "data": [
         {
             "id": "1",
@@ -61,7 +61,7 @@ Restful Resources for Merchants and Items:
     GET /api/v1/merchants/:id<br />
     GET /api/v1/items/:id<br />
     
-     <pre><code>{
+     <pre><code> {
     "data": {
         "id": "3",
         "type": "merchant",
