@@ -28,7 +28,7 @@ Open a tool like postman and make any of the following requests.<br />
 Restful Resources for Merchants and Items: 
   
   #### &nbsp;&nbsp;Index: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants<br />
     
   
   <pre><code> { 
@@ -99,7 +99,7 @@ Restful Resources for Merchants and Items:
       ]
     }</pre></code><br /><br /><br />
   #### &nbsp;&nbsp;Show: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id<br />
     
    <pre><code>{
     "data": {
@@ -130,7 +130,7 @@ Restful Resources for Merchants and Items:
 }</pre></code>
   
   #### &nbsp;&nbsp;Create: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;POST /api/v1/merchants?name=happy dog<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;POST /api/v1/merchants?name=happy dog<br />
     
    <pre><code>{
     "data": {
@@ -163,7 +163,7 @@ Restful Resources for Merchants and Items:
 </pre></code><br /><br /><br />
   
   #### &nbsp;&nbsp;Update: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/merchants/:id?name=wonderful world of house plants<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/merchants/:id?name=wonderful world of house plants<br />
   
   <pre><code>{
     "data": {
@@ -193,7 +193,7 @@ Restful Resources for Merchants and Items:
 }</pre></code><br /><br /><br />
   
   #### &nbsp;&nbsp;Destroy: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;DELETE /api/v1/merchants/:id<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;DELETE /api/v1/merchants/:id<br />
   
   <pre><code></pre></code><br /><br /><br />
   
@@ -250,7 +250,7 @@ Restful Resources for Merchants and Items:
 ### Find endpoints: <br />
 
   #### &nbsp;&nbsp;Returns a single resource matching attributes:<br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find?name=Jerde<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find?name=Jerde<br />
   
   <pre><code>{
     "data": {
@@ -264,7 +264,7 @@ Restful Resources for Merchants and Items:
 }</pre></code><br /><br /><br />
   
   #### &nbsp;&nbsp;Returns all resources matching attributes:<br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find_all?name=one<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find_all?name=one<br />
   
   <pre><code>{
     "data": [
@@ -290,7 +290,7 @@ Restful Resources for Merchants and Items:
  ### Buiness Intelligence endpoints:<br />
  
   #### &nbsp;&nbsp;Merchants with the most revenue: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_revenue?quantity=2<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_revenue?quantity=2<br />
     
    <pre><code>
    {
@@ -316,7 +316,7 @@ Restful Resources for Merchants and Items:
 </pre></code><br /><br /><br />
     
   #### &nbsp;&nbsp;Merchants with most items sold:<br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_items?quantity=2<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/most_items?quantity=2<br />
     
    <pre><code>
    {
@@ -342,7 +342,7 @@ Restful Resources for Merchants and Items:
 </pre></code><br /><br /><br />
     
   #### &nbsp;&nbsp;Revenue accross date range: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/revenue?start=2012-03-09&end=2012-03-24<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/revenue?start=2012-03-09&end=2012-03-24<br />
     
   <pre><code>
   {
@@ -356,7 +356,7 @@ Restful Resources for Merchants and Items:
 </pre></code><br /><br /><br />
     
   #### &nbsp;&nbsp;Revenue for a merchant: <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id/revenue<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id/revenue<br />
     
    <pre><code>
    {
