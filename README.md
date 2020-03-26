@@ -98,7 +98,7 @@ Restful Resources for Merchants and Items:
         }
       ]
     }</pre></code><br /><br /><br />
-  &nbsp;&nbsp;Show: <br />
+  &nbsp;&nbsp;Show: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchants/:id<br />
     
    <pre><code>{
@@ -162,7 +162,7 @@ Restful Resources for Merchants and Items:
 }
 </pre></code><br /><br /><br />
   
-  &nbsp;&nbsp;Update: <br />
+  &nbsp;&nbsp;Update: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;PATCH /api/v1/merchants/:id?name=wonderful world of house plants<br />
   
   <pre><code>{
@@ -192,7 +192,7 @@ Restful Resources for Merchants and Items:
     }
 }</pre></code><br /><br /><br />
   
-  &nbsp;&nbsp;Destroy: <br />
+  &nbsp;&nbsp;Destroy: <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;DELETE /api/v1/merchants/:id<br />
   
   <pre><code></pre></code><br /><br /><br />
@@ -263,7 +263,7 @@ Restful Resources for Merchants and Items:
     }
 }</pre></code><br /><br /><br />
   
-  &nbsp;&nbsp;Returns all resources matching attributes:<br />
+  &nbsp;&nbsp;Returns all resources matching attributes:<br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;GET /api/v1/merchant/find_all?name=one<br />
   
   <pre><code>{
@@ -369,24 +369,3 @@ Restful Resources for Merchants and Items:
 }
 </pre></code><br /><br /><br />
   
-  
-  
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
