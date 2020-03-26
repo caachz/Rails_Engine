@@ -3,6 +3,12 @@
 ## Background and Description
 Rails engine is a basic ecommerce API that exposes endpoints for all crud functionality and advanced business logic endpoints. It is built to communicate with a prebuilt frontend called Rails Driver.
 
+## Key Learnings
+* Exposing an API
+* Use serializers to format json responses
+* Test API exposure
+* Compose advanced ActiveRecord queries to analyze information stored in SQL databases.
+
 ## Implementation Instructions
 ### To set up locally with front end Rails Driver:<br />
 
