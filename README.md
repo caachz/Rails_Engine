@@ -4,21 +4,21 @@
 Rails engine is a basic ecommerce API that exposes endpoints for all crud functionality and advanced business logic endpoints. It is built to communicate with a prebuilt frontend called Rails Driver.
 
 # Implementation Instructions
-To set up locally with front end Rails Driver:
+To set up locally with front end Rails Driver:<br />
 
-Clone down this repository and the front end of the application at https://github.com/caachz/rails_driver.
-Run bundle install on rails engine.
-Run rails db:{create,migrate,seed} to setup the database on rails engine.
-Run rails s to localhost:3000.
-Navigate to the cloned down Rails Driver and run rails s to localhost:3001.
-open localhost:3001 in your browser.
+Clone down this repository and the front end of the application at https://github.com/caachz/rails_driver.<br />
+Run bundle install on rails engine.<br />
+Run rails db:{create,migrate,seed} to setup the database on rails engine.<br />
+Run rails s to localhost:3000.<br />
+Navigate to the cloned down Rails Driver and run rails s to localhost:3001.<br />
+open localhost:3001 in your browser.<br /><br />
 
-To set up locally using a tool like Postman:
-You can only clone down Rails Engine.
-Run bundle install on rails engine.
-Run rails db:{create,migrate,seed} to setup the database on rails engine.
-Run rails s to localhost:3000.
-Open a tool like postman and make any of the following requests.
+To set up locally using a tool like Postman:<br />
+You can only clone down Rails Engine.<br />
+Run bundle install on rails engine.<br />
+Run rails db:{create,migrate,seed} to setup the database on rails engine.<br />
+Run rails s to localhost:3000.<br />
+Open a tool like postman and make any of the following requests.<br />
 
 # Endpoints
 
