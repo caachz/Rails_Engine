@@ -24,7 +24,7 @@ Open a tool like postman and make any of the following requests.
 
 Restful Resources for Merchants and Items: 
   
-  Index: 
+  Index: \n
     GET /api/v1/<resource>
   
   <pre><code>{ 
